@@ -8,7 +8,6 @@ import { NavigationContainer } from '@react-navigation/native';
 
 // SCREENS
 import HomePresenter from '../screens/Home';
-// import FilterScreen from '../pages/FilterScreen';
 
 const Routes = () => {
 
