@@ -1,6 +1,6 @@
 
 
-   
+https://pokeapi.co/api/v2/pokemon/ditto
 
 
 Ótima ideia! Um aplicativo de Pokémon usando a **PokeAPI** é um projeto excelente para praticar **React Native** e **TypeScript**. Vamos criar um **PokerApp** que permita aos usuários explorar Pokémon, ver detalhes, buscar por nome ou tipo, e talvez até criar uma lista de favoritos. Vou definir o escopo, as tecnologias, os requisitos e as tarefas semanais para você.
