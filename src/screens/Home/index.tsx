@@ -1,21 +1,25 @@
-import { Image } from 'react-native';
+import { Alert, Image } from 'react-native';
 
 import * as S from './styles'
 
-import Pikachu from '../assets/pikachu.png'
+import Pikachu from '../../assets/pikachu.png'
 
-interface HomeProps {
-    data?: any
+export interface HomeProps {
+    data?: any;
+    loading?: boolean;
+    error?: string | null;
 }
 
+
 const Home = ({
-    data
+    data = null,
+    loading = false,
+    error = '',
 }: HomeProps) => {
 
+    console.log("data: ", data)
+
     return (
-        // <View style={{ flex: 1, backgroundColor: '#DD1234' }}>
-        //     <Image source={Pikachu} style={{width: 300, height: 300}} />
-        // </View>
         <S.Wrapper>
             <S.Header>
                 <Image source={Pikachu} style={{ width: 200, height: 200, marginRight: 50 }} />
@@ -30,7 +34,7 @@ const Home = ({
 
             <S.SearchView>
                 <S.ButtonSearch>
-                    <S.TitleButton>{data}</S.TitleButton>
+                    <S.TitleButton>Pesquisar</S.TitleButton>
                 </S.ButtonSearch>
             </S.SearchView>
         </S.Wrapper>

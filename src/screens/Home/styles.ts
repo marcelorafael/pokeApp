@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components/native';
 export const Wrapper = styled.View`
   ${({ theme }: any) => css`
     flex: 1;
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }: any) => theme.colors.primary};
   `}
 `;
 
@@ -15,7 +15,6 @@ export const Header = styled.View`
     align-items: center;
     justify-content: center;
 
-    /* background-color: ${({ theme }) => theme.colors.secondary}; */
   `}
 `;
 
@@ -75,14 +74,3 @@ export const TitleButton = styled.Text`
     font-weight: bold;
   `}
 `;
-
-// export const StyledText = styled.Text`
-//   font-family: ${({ theme }) => theme.fonts.regular};
-//   font-size: 16px;
-//   color: ${({ theme }) => theme.colors.text};
-// `;
-
-// export const StyledView = styled.View`
-//   background-color: ${({ theme }) => theme.colors.background};
-//   padding: ${({ theme }) => theme.spacing.medium}px;
-// `;

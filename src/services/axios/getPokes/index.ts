@@ -1,10 +1,10 @@
 import {ApiPokemon} from '..';
 
 export const getPokemons = () => {
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     ApiPokemon.api
       .get(
-        'pokemon/',
+        'pokemon'
       )
       .then(response => {
         console.log('resp: ', response)
@@ -13,5 +13,6 @@ export const getPokemons = () => {
       .catch(error => {
         resolve(error);
       });
+
   });
 };
