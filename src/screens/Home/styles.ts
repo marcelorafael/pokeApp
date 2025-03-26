@@ -4,6 +4,8 @@ export const Wrapper = styled.View`
   ${({ theme }: any) => css`
     flex: 1;
     background-color: ${({ theme }: any) => theme.colors.primary};
+
+    justify-content: space-around;
   `}
 `;
 
@@ -35,7 +37,11 @@ export const CardsView = styled.View`
     height: 300px;
     background-color: ${({ theme }: any) => theme.colors.background};
 
-    border-radius: 5px;
+    border-radius: 80px 80px 5px 5px;
+
+    justify-content: flex-end;
+
+    align-items: center;
   `}
 `;
 
@@ -66,6 +72,16 @@ export const ButtonSearch = styled.TouchableOpacity.attrs({
 `;
 
 export const TitleButton = styled.Text`
+  ${({ theme }: any) => css`
+    color: ${theme.colors.text};
+
+    font-size: 25px;
+
+    font-weight: bold;
+  `}
+`;
+
+export const TextCard = styled.Text`
   ${({ theme }: any) => css`
     color: ${theme.colors.text};
 

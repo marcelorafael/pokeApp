@@ -21,15 +21,15 @@ export const getPokemons = () => {
   });
 };
 
-// export const getIndividualPokemons = (url: string) => {
-//   return new Promise(async (resolve, reject) => {
-//     axios.get(url).then(response => {
-//       resolve(response);
-//     })
-//     .catch(error => {
-//       resolve(error);
-//       reject(error)
-//     });
+export const getIndividualPokemons = (url: string) => {
+  return new Promise(async (resolve, reject) => {
+    axios.get(url).then(response => {
+      resolve(response);
+    })
+    .catch(error => {
+      resolve(error);
+      reject(error)
+    });
 
-//   });
-// };
+  });
+};

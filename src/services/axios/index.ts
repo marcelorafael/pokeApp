@@ -5,3 +5,4 @@ export const ApiPokemon = {
     baseURL: 'https://pokeapi.co/api/v2/',
   }),
 };
+
