@@ -38,11 +38,15 @@ const Home: React.FC<HomeProps> = ({
 
             setDataPokemons(dataResponse?.data?.results);
 
-            let dataIndividual = []
+            
 
-            // dataResponse?.data?.results.map((item: any) => {
-            //     handleGetIndividualPokemons(item.url)
-            // })
+            const random = Math.floor(Math.random() * 20)
+
+            const dataIndividual1 = await handleGetIndividualPokemons(dataPokemons[random]?.url)
+
+            const dataIndividual2 = await handleGetIndividualPokemons(dataPokemons[random + 1]?.url)
+
+            setDataPokemonsIndividual([dataIndividual1, dataIndividual2])
 
 
         } catch (err: any) {
@@ -56,15 +60,9 @@ const Home: React.FC<HomeProps> = ({
     async function handleGetIndividualPokemons(data: any) {
         const data2: any = await getIndividualPokemons(data)
 
-        // const url = data2.data
-
-        // dataPokemons?.map((item: any) => {
-        //     const data = handleGetIndividualPokemons(item.url)
-        // })
-
-        // setDataPokemonsIndividual((arr: any) => [...arr, data])
-
-        // https://pokeapi.co/api/v2/pokemon/1
+        
+        
+        // setDataPokemonsIndividual
 
         return data2.data
     }
@@ -75,25 +73,22 @@ const Home: React.FC<HomeProps> = ({
     useEffect(() => {
         getAllPokemons();
 
+        // (async () => {
+        //     const random = Math.floor(Math.random() * 20)
 
-        (async () => {
-            const random = Math.floor(Math.random() * 20)
+        //     const data = await handleGetIndividualPokemons(dataPokemons[random].url)
 
-            const data = await handleGetIndividualPokemons(dataPokemons[random].url)
+        //     const data1 = await handleGetIndividualPokemons(dataPokemons[random + 1].url)
 
-            const data1 = await handleGetIndividualPokemons(dataPokemons[random + 1].url)
+        //     dataaki = [data, data1]
 
-            dataaki = [data, data1]
-
-            setDataPokemonsIndividual([data, data1])
-        })()
-
-
+        //     setDataPokemonsIndividual([data, data1])
+        // })()
 
 
     }, []);
 
-    console.log(dataPokemonsIndividual)
+    console.log('dataPokemonsIndividual: ', JSON.stringify(dataPokemonsIndividual))
     // getIndividualPokemons
 
     return (
@@ -109,7 +104,7 @@ const Home: React.FC<HomeProps> = ({
 
 
                         {dataPokemonsIndividual?.map((item: any, index: any) => (
-                            <S.CardsView>
+                            <S.CardsView key={index}>
                                 <S.TextCard>{item?.name.toUpperCase()}</S.TextCard>
                                 <S.TextCard>Altura.: {item?.height}</S.TextCard>
                                 <S.TextCard>Peso.: {item?.weight}</S.TextCard>

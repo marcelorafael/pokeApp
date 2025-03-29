@@ -4,7 +4,7 @@ export default {
       secondary: '#2ABBCA',
       otherPrimary: '#FFCB05',
       otherSecondary: '#3B4CCA',
-      background: '#FFFFFF',
+      background: '#F5F5F5',
       text: '#000000',
       error: '#FF0000',
     },

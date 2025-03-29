@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components/native';
 export const Wrapper = styled.View`
   ${({ theme }: any) => css`
     flex: 1;
-    background-color: ${({ theme }: any) => theme.colors.primary};
+    background-color: ${({ theme }: any) => theme.colors.background};
 
     justify-content: space-around;
   `}
@@ -37,11 +37,15 @@ export const CardsView = styled.View`
     height: 300px;
     background-color: ${({ theme }: any) => theme.colors.background};
 
-    border-radius: 80px 80px 5px 5px;
+    /* border-radius: 80px 80px 5px 5px; */
 
     justify-content: flex-end;
 
     align-items: center;
+
+    elevation: 5
+
+    
   `}
 `;
 
