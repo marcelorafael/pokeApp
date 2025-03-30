@@ -6,6 +6,7 @@ export default {
       otherSecondary: '#3B4CCA',
       background: '#F5F5F5',
       text: '#000000',
+      otherText: '#7f8c8d',
       error: '#FF0000',
     },
     fonts: {

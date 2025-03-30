@@ -39,6 +39,8 @@ export const CardsView = styled.View`
 
     /* border-radius: 80px 80px 5px 5px; */
 
+    padding: 0 10px 0 10px;
+
     justify-content: flex-end;
 
     align-items: center;
@@ -64,7 +66,7 @@ export const ButtonSearch = styled.TouchableOpacity.attrs({
     width: 100%;
     height: 50px;
 
-    background-color: ${theme.colors.otherPrimary};
+    background-color: ${theme.colors.secondary};
 
     margin-top: 10px;
 
@@ -77,7 +79,7 @@ export const ButtonSearch = styled.TouchableOpacity.attrs({
 
 export const TitleButton = styled.Text`
   ${({ theme }: any) => css`
-    color: ${theme.colors.text};
+    color: ${theme.colors.background};
 
     font-size: 25px;
 
@@ -89,7 +91,17 @@ export const TextCard = styled.Text`
   ${({ theme }: any) => css`
     color: ${theme.colors.text};
 
-    font-size: 25px;
+    font-size: 20px;
+
+    font-weight: bold;
+  `}
+`;
+
+export const MiniText = styled.Text`
+  ${({ theme }: any) => css`
+    color: ${theme.colors.otherText};
+
+    font-size: 15px;
 
     font-weight: bold;
   `}

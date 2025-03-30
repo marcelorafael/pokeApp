@@ -2,7 +2,7 @@ import { Alert, Image, View } from 'react-native';
 
 import * as S from './styles'
 
-import Pikachu from '../../assets/pokeball2.png'
+import Pikachu from '../../assets/Pokémon_logo.png'
 import React, { useEffect, useState } from 'react';
 import { getPokemons, getIndividualPokemons } from '../../services/axios/getPokes';
 
@@ -32,13 +32,9 @@ const Home: React.FC<HomeProps> = ({
             setLoading(true);
             const dataResponse: any = await getPokemons();
 
-            // if (!dataResponse?.data?.results || !Array.isArray(dataResponse)) {
-            //     throw new Error("Dados inválidos recebidos da API");
-            // }
-
             setDataPokemons(dataResponse?.data?.results);
 
-            
+
 
             const random = Math.floor(Math.random() * 20)
 
@@ -60,10 +56,6 @@ const Home: React.FC<HomeProps> = ({
     async function handleGetIndividualPokemons(data: any) {
         const data2: any = await getIndividualPokemons(data)
 
-        
-        
-        // setDataPokemonsIndividual
-
         return data2.data
     }
 
@@ -73,28 +65,12 @@ const Home: React.FC<HomeProps> = ({
     useEffect(() => {
         getAllPokemons();
 
-        // (async () => {
-        //     const random = Math.floor(Math.random() * 20)
-
-        //     const data = await handleGetIndividualPokemons(dataPokemons[random].url)
-
-        //     const data1 = await handleGetIndividualPokemons(dataPokemons[random + 1].url)
-
-        //     dataaki = [data, data1]
-
-        //     setDataPokemonsIndividual([data, data1])
-        // })()
-
-
     }, []);
-
-    console.log('dataPokemonsIndividual: ', JSON.stringify(dataPokemonsIndividual))
-    // getIndividualPokemons
 
     return (
         <S.Wrapper>
             <S.Header>
-                <Image source={Pikachu} style={{ width: 200, height: 200 }} />
+                <Image source={Pikachu} style={{ width: 250, height: 90 }} />
             </S.Header>
 
             <View>
@@ -106,11 +82,25 @@ const Home: React.FC<HomeProps> = ({
                         {dataPokemonsIndividual?.map((item: any, index: any) => (
                             <S.CardsView key={index}>
                                 <S.TextCard>{item?.name.toUpperCase()}</S.TextCard>
-                                <S.TextCard>Altura.: {item?.height}</S.TextCard>
-                                <S.TextCard>Peso.: {item?.weight}</S.TextCard>
-                                <S.TextCard>Exp.: {item?.base_experience}</S.TextCard>
-                                <S.TextCard>Tipo: {item?.types[0]?.type?.name}</S.TextCard>
+                                <View style={{ display: 'flex', flexDirection: 'row',alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                                    <S.MiniText>Altura:</S.MiniText>
+                                    <S.TextCard> {item?.height}</S.TextCard>
+                                </View>
+                                <View style={{ display: 'flex', flexDirection: 'row',alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                                    <S.MiniText>Peso:</S.MiniText>
+                                    <S.TextCard> {item?.weight}</S.TextCard>
+                                </View>
+                                <View style={{ display: 'flex', flexDirection: 'row',alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                                    <S.MiniText>Exp.:</S.MiniText>
+                                    <S.TextCard> {item?.base_experience}</S.TextCard>
+                                </View>
+                                <View style={{ display: 'flex', flexDirection: 'row',alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                                    <S.MiniText>Tipo:</S.MiniText>
+                                    <S.TextCard> {item?.types[0]?.type?.name}</S.TextCard>
+                                </View>
                                 
+
+
                                 <Image source={{
                                     uri: item?.sprites?.front_default
                                 }} width={200} height={200} style={{ position: 'absolute', top: -120, left: -7 }} />
